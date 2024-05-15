@@ -33,7 +33,17 @@ export default function Home() {
                           name = "email" 
                           placeholder = "Email" 
                           id = "email"
+                          className="mt-1 block w-full px-3 py-2 border border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                           />
+                        <div className="mb-4">  
+                          <Field 
+                          type = "password" 
+                          name = "password" 
+                          placeholder = "Senha" 
+                          id = "password"
+                          className="mt-1 block w-full px-3 py-2 border border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                          />
+                         </div> 
                         </div>
                       </Form>
                     </Formik>
