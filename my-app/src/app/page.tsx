@@ -35,15 +35,29 @@ export default function Home() {
                           id = "email"
                           className="mt-1 block w-full px-3 py-2 border border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                           />
+                        </div>  
                         <div className="mb-4">  
-                          <Field 
+                          <Field
                           type = "password" 
                           name = "password" 
                           placeholder = "Senha" 
                           id = "password"
                           className="mt-1 block w-full px-3 py-2 border border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                           />
-                         </div> 
+                        </div> 
+                        <div className="inline-flex mb-4">
+                          <button
+                          type = "submit"
+                          className="w-full border-solid border-2 border-black bg-emerald-300 text-blue-950 py-2 px-4 hover:bg-emerald-200 focus:bg-emerald-600 focus:text-emerald-100 rounded-md"
+                          > Entrar
+                          </button>
+                        </div>  
+                        <div className="inline-flex mb-4">
+                          <button
+                          type = "button"
+                          className="w-full border-solid border-2 border-black bg-emerald-300 text-blue-950 py-2 px-4 hover:bg-emerald-200 focus:bg-emerald-600 focus:text-emerald-100 rounded-md"
+                          > Não possue conta? Cadastre-se!
+                          </button>
                         </div>
                       </Form>
                     </Formik>
