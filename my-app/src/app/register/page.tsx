@@ -20,8 +20,8 @@ const submitionHandler = (values: any) => {
 
 const registerPage = () => {
 return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-    <div className="w-full bg-white shadow-md rounded-lg overflow-hidden">
+    <div className="flex items-center justify-center min-h-screen bg-gray-200">
+    <div className="w-full bg-gray-200 shadow-md rounded-lg overflow-hidden">
       <div className="flex h-full">
         <div className="w-1/2 bg-gray-200">
           <img className="w-full h-full" src="image 1.png" alt="Erro ao carregar imagem!"/>
@@ -37,7 +37,7 @@ return (
                   name = "username" 
                   placeholder = "Nome" 
                   id = "username"
-                  className="mt-1 block w-full px-3 py-2 border border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                  className="mt-1 block w-full px-3 py-2 border bg-white border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                   />
                 </div>  
                 <div className="mb-4">
@@ -46,7 +46,7 @@ return (
                   name = "email" 
                   placeholder = "Email" 
                   id = "email"
-                  className="mt-1 block w-full px-3 py-2 border border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                  className="mt-1 block w-full px-3 py-2 border bg-white border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                   />
                 </div>  
                 <div className="mb-4">  
@@ -55,7 +55,7 @@ return (
                   name = "password" 
                   placeholder = "Senha" 
                   id = "password"
-                  className="mt-1 block w-full px-3 py-2 border border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                  className="mt-1 block w-full px-3 py-2 border bg-white border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                   />
                 </div> 
                 <div className="mb-4">  
@@ -64,7 +64,7 @@ return (
                   name = "curso" 
                   placeholder = "Curso" 
                   id = "curso"
-                  className="mt-1 block w-full px-3 py-2 border border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                  className="mt-1 block w-full px-3 py-2 border bg-white border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                   />
                 </div> 
                 <div className="mb-4">  
@@ -73,13 +73,13 @@ return (
                   name = "departamento" 
                   placeholder = "Departamento" 
                   id = "departamento"
-                  className="mt-1 block w-full px-3 py-2 border border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                  className="mt-1 block w-full px-3 py-2 border bg-white border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                   />
                 </div> 
                 <div className="inline-flex mb-4">
                   <button
                   type = "submit"
-                  className="w-full border-solid border-2 border-black bg-emerald-300 text-blue-950 py-2 px-4 hover:bg-emerald-200 focus:bg-emerald-600 focus:text-emerald-100 rounded-md"
+                  className="w-full shadow-sm border-solid border-2 border-black bg-emerald-300 text-blue-950 py-2 px-4 hover:bg-emerald-200 focus:bg-emerald-600 focus:text-emerald-100 rounded-md"
                   > Criar Conta
                   </button>
                 </div>  
