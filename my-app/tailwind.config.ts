@@ -13,6 +13,32 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      height: {
+        "99px": "99px",
+        "45px": "45px"
+      },
+      margin:{
+        "74px":"74px",
+        "19px":"19px"
+      },
+      width: {
+        "92px": "92px",
+        "154px": "154px",
+        "45px": "45px"
+      },
+      borderRadius: {
+        "16px": "16px",
+        "100px":"100px"
+      },
+      boxShadow:{
+        'custom': '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+      },
+      fontFamily:{
+        "questrial": ["Questrial", "sans-serif"],
+      },
+      fontSize: {
+        "30px":"30px",
+      }
     },
   },
   plugins: [],
