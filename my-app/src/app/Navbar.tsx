@@ -19,9 +19,7 @@ export default function NavBar() {
                 <a href="http://localhost:3000/">
                 <img className="cursor-pointer" src="exit.svg" alt="Icone de saída" />
                 </a>
-            </div>
-
-            
+            </div>            
         </div>
     );
 }

@@ -11,3 +11,10 @@
     top: 50px; /* Move a letra 60 pixels para baixo */
     left: 320px;
 }
+
+.custom-prof {
+    font-size: 20px; /* Aumenta o tamanho da letra */
+    position: right; /* Necessário para usar top */
+    top: 200px; /* Move a letra 60 pixels para baixo */
+    left: 200px;
+}

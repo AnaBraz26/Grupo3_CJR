@@ -77,7 +77,7 @@ return (
                   />
                 </div> 
                 <div className="inline-flex mb-4">
-                  <a href="http://localhost:3000/" className=" right=10 w-full shadow-sm border-solid border-2 border-black bg-emerald-300 text-blue-950 py-2 px-4 hover:bg-emerald-200 focus:bg-emerald-600 focus:text-emerald-100 rounded-md">Criar Conta
+                  <a href="http://localhost:3000/" className="w-full shadow-sm border-solid border-2 border-black bg-emerald-300 text-blue-950 py-2 px-4 hover:bg-emerald-200 focus:bg-emerald-600 focus:text-emerald-100 rounded-md">Criar Conta
                   <button type = "submit"> 
                   </button>
                   </a>
