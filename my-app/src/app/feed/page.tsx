@@ -15,9 +15,10 @@ export default function Profile() {
             </div>
         </div>
 
-        <div>
-
-
+        <div className="">
+          <div>
+            <h1 className="custom-scr"> Novos professores </h1>
+          </div>
         </div>
       </>
     );
