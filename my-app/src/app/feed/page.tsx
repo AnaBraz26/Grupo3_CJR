@@ -8,14 +8,13 @@ export default function Profile() {
       <>
         <link rel="stylesheet" href="styles.css"></link>
         <NavBar></NavBar>
-        <div className="flex items center justify win-h screen bg-gray">
-            <h1 className="custom-text"> Novos professores </h1>
+        <div className="flex items center justify win-h screen bg-gray-100">
+                <h1 className="custom-text"> Novos professores </h1>
             <div> 
-               <form>
-                    <textarea className="custom-scr" id="professor" name="professor" cols="25"></textarea>
-                </form>
+                <h1 className="custom-scr"> Novos professores </h1>
             </div>
         </div>
+
         <div>
 
 

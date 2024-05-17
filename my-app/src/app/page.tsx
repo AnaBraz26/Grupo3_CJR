@@ -47,18 +47,22 @@ export default function Home() {
                           />
                         </div> 
                         <div className="inline-flex mb-4">
+                          <a href="http://localhost:3000/profile">
                           <button
-                          type = "submit"
+                          type = "button"
                           className="w-full shadow-sm border-solid border-2 border-black bg-emerald-300 text-blue-950 py-2 px-4 hover:bg-emerald-200 focus:bg-emerald-600 focus:text-emerald-100 rounded-md"
                           > Entrar
                           </button>
+                          </a>
                         </div>  
                         <div className="inline-flex mb-4">
+                          <a href="http://localhost:3000/register">
                           <button
                           type = "button"
                           className="w-full shadow-sm border-solid border-2 border-black bg-emerald-300 text-blue-950 py-2 px-4 hover:bg-emerald-200 focus:bg-emerald-600 focus:text-emerald-100 rounded-md"
                           > Não possue conta? Cadastre-se! 
                           </button>
+                          </a>
                         </div> 
                       </Form>
                     </Formik>
