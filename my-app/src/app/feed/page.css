@@ -1,0 +1,13 @@
+.custom-text {
+    font-size: 25px; /* Aumenta o tamanho da letra */
+    position: relative; /* Necessário para usar top */
+    top: 60px; /* Move a letra 60 pixels para baixo */
+    left: 150px;
+}
+
+.custom-scr {
+    font-size: 15px; /* Aumenta o tamanho da letra */
+    position: relative; /* Necessário para usar top */
+    top: 50px; /* Move a letra 60 pixels para baixo */
+    left: 320px;
+}
