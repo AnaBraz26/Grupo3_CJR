@@ -1,4 +1,4 @@
-import NavBar from "../Navbar";
+import NavBar from "../components/Navbar";
 
 export default function Profile() {
   return (
