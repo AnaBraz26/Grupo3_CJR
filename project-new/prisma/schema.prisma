@@ -17,9 +17,9 @@ model Users {
   id    Int     @default(autoincrement()) @id
   password String
   email String  @unique
-  name  String?
-  course String
-  Department String
+  name  String
+  course String?
+  Department String?
   reviews Reviews[]
 }
 
@@ -33,6 +33,6 @@ model Reviews {
 
 model Professors {
   id Int @default(autoincrement()) @id
-  name  String?
+  name  String
   reviews Reviews[]
 }
