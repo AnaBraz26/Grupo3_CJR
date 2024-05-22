@@ -19,12 +19,14 @@ const config: Config = {
       },
       margin:{
         "74px":"74px",
-        "19px":"19px"
+        "19px":"19px",
+        "37px": "37px",
       },
       width: {
         "92px": "92px",
         "154px": "154px",
-        "45px": "45px"
+        "45px": "45px",
+        "646px":"646px",
       },
       borderRadius: {
         "16px": "16px",
@@ -38,6 +40,9 @@ const config: Config = {
       },
       fontSize: {
         "30px":"30px",
+      },
+      padding: {
+        "99px": "99px",
       }
     },
   },
