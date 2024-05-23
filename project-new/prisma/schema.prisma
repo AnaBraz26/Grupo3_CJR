@@ -19,7 +19,7 @@ model Users {
   email String  @unique
   name  String
   course String?
-  Department String?
+  department String?
   reviews Reviews[]
 }
 
