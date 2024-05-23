@@ -2,12 +2,14 @@ import { Injectable } from '@nestjs/common';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { UpdateReviewDto } from './dto/update-review.dto';
 import { PrismaClient } from '@prisma/client';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class ReviewsService {
-  prisma = new PrismaClient();
-  create(createReviewDto: CreateReviewDto) {
-    return 'This action adds a new review';
+  constructor(private prisma: PrismaService){}
+
+  async create(createReviewDto: CreateReviewDto) {
+    return  'This action adds a new review';
   }
 
   findAll() {

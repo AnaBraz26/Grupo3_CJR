@@ -1,8 +1,14 @@
-import { IsDate, IsEmail, IsInt, IsString } from "class-validator";
+import { IsDate, IsEmail, IsIn, IsInt, IsString } from "class-validator";
 
 export class CreateCommentDto{
+    @IsInt()
+    usersId: number;
+    @IsInt()
+    reviewsId: number;
     @IsString()
     content: string;
+    @IsDate() 
+    createAt: Date;
     @IsDate()
-    date: Date;
+    updateAt: Date; 
 }
