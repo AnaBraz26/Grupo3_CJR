@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:./dev.db"
 }
 
 model Users {
@@ -20,33 +20,55 @@ model Users {
   name  String
   course String?
   department String?
+  createdAt DateTime
+  updateAt DateTime
   reviews Reviews[]
   comments Comments[]
 }
 
 model Reviews {
 	id Int @default(autoincrement()) @id
-	content String 
-  discipline String
-  date DateTime
-	author Users @relation(fields: [authorId], references: [id], onDelete: Cascade)
-  professor Professors @relation(fields: [professorId], references: [id], onDelete: Cascade)
-	authorId Int
+  userId Int
   professorId Int
+  disciplineId Int
+	content String 
+  createAt DateTime
+  updateAt DateTime
+	user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+  professor Professors[]
+	discipline Discipline[]
+  comments Comments[]
+}
+
+model Comments {
+  id Int @default(autoincrement()) @id
+  usersId Int
+  reviewsId Int
+	content String 
+  createAt DateTime
+  updateAt DateTime
+  users Users @relation(fields: [usersId], references: [id], onDelete: Cascade)
+  reviews Reviews @relation(fields: [reviewsId], references: [id], onDelete: Cascade)
 }
 
 model Professors {
   id Int @default(autoincrement()) @id
   name  String
   department String
-  discipline String
+  disciplineId Int
+  createdAt DateTime
+  updateAt DateTime
   reviews Reviews[]
+  discipline Discipline @relation(fields: [disciplineId], references: [id], onDelete: Cascade)
 }
 
-model Comments {
+
+model Discipline {
   id Int @default(autoincrement()) @id
-	content String 
-  date DateTime
-  author Users @relation(fields: [authorId], references: [id], onDelete: Cascade)
-  authorId Int
+  name String
+  professorId String
+  creatAt DateTime
+  updateAt DateTime
+  reviews Reviews[]
+  professor Professors[]
 }
