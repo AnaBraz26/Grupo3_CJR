@@ -1,0 +1,74 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Users {
+  id    Int     @default(autoincrement()) @id
+  password String
+  email String  @unique
+  name  String
+  course String?
+  department String?
+  createdAt DateTime
+  updateAt DateTime
+  reviews Reviews[]
+  comments Comments[]
+}
+
+model Reviews {
+	id Int @default(autoincrement()) @id
+  userId Int
+  professorId Int
+  disciplineId Int
+	content String 
+  createAt DateTime
+  updateAt DateTime
+	user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+  professor Professors[]
+	discipline Discipline[]
+  comments Comments[]
+}
+
+model Comments {
+  id Int @default(autoincrement()) @id
+  usersId Int
+  reviewsId Int
+	content String 
+  createAt DateTime
+  updateAt DateTime
+  users Users @relation(fields: [usersId], references: [id], onDelete: Cascade)
+  reviews Reviews @relation(fields: [reviewsId], references: [id], onDelete: Cascade)
+}
+
+model Professors {
+  id Int @default(autoincrement()) @id
+  name  String
+  department String
+  disciplineId Int
+  createdAt DateTime
+  updateAt DateTime
+  reviews Reviews[]
+  discipline Discipline @relation(fields: [disciplineId], references: [id], onDelete: Cascade)
+}
+
+
+model Discipline {
+  id Int @default(autoincrement()) @id
+  name String
+  professorId String
+  creatAt DateTime
+  updateAt DateTime
+  reviews Reviews[]
+  professor Professors[]
+}

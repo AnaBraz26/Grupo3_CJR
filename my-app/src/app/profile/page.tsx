@@ -10,7 +10,6 @@ export default function Profile() {
         </a>
         <div className="pt-99px w-646px bg-[#3EEE9A]">
 
-
         </div>
       </div>
     </>
