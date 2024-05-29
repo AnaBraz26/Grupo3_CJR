@@ -4,13 +4,13 @@ import { IsDate, IsInt, IsString } from 'class-validator';
 
 export class UpdateCommentDto extends PartialType(CreateCommentDto) {
     @IsInt()
-    usersId: number;
+    usersId?: number;
     @IsInt()
-    reviewsId: number;
+    reviewsId?: number;
     @IsString()
-    content: string;
+    content?: string;
     @IsDate() 
-    createAt: Date;
+    createAt?: Date;
     @IsDate()
     updateAt: Date; 
 }
