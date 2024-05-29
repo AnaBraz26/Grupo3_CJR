@@ -4,17 +4,17 @@ import { IsDate, IsEmail, IsInt, IsString } from "class-validator";
 
 export class UpdateUserDto extends PartialType(CreateUserDto) {
     @IsEmail()
-    email: string;
+    email?: string;
     @IsString()
-    password: string;
+    password?: string;
     @IsString()
-    name: string;
+    name?: string;
     @IsString()
     course?: string;
     @IsString()
     department?: string;
     @IsDate()
-    createdAt: Date;
+    createdAt?: Date;
     @IsDate()
     updateAt: Date;
 }

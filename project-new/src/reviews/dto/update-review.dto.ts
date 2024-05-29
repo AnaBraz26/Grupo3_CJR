@@ -1,20 +1,20 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateReviewDto } from './create-review.dto';
-import { IsDate, IsInt, IsString } from 'class-validator';
+import { IsDate, IsEmail, IsInt, IsString } from "class-validator";
 
 export class UpdateReviewDto extends PartialType(CreateReviewDto) {
     @IsString()
-    content: string;
+    content?: string;
     @IsInt()
-    disciplineId: number;
+    disciplineId?: number;
     @IsDate()
-    date: Date;
+    date?: Date;
     @IsInt()
-    userId: number;
+    userId?: number;
     @IsInt()
-    professorId: number;
+    professorId?: number;
     @IsDate()
-    createAt: Date;
+    createAt?: Date;
     @IsDate()
     updateAt: Date;
 }
