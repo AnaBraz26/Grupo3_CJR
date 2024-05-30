@@ -19,9 +19,15 @@ export default function Comment() {
                     looked up one of the more obscure Latin
                 </p>
             </div>
-            <div className="flex items-center ml-[74px] mb-1.5">
-                <img src="comente 1.png" alt="comentario icon" />
-                <h1 className="text-[#222E50] text-sm font-medium">2 comentarios</h1>
+            <div className="flex items-center justify-between ml-[74px] mb-1.5">
+                <div className="flex items-center">
+                    <img src="comente 1.png" alt="comentario icon" />
+                    <h1 className="text-[#222E50] text-sm font-medium">2 comentarios</h1>
+                </div>
+                <div className="flex items-center mr-8">
+                    <img src="editIcon.png" alt="Edit icon" />
+                    <img className="ml-4"src="lixeira 1.png" alt="Delete icon" />
+                </div>
             </div>
 
         </div>

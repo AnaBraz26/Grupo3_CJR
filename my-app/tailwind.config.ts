@@ -12,6 +12,8 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "#A4FED3":"#A4FED3",
+        "#FEA4A4":"#FEA4A4"
       },
       textColor: {
         "#222E50": "#222E50",
@@ -21,6 +23,7 @@ const config: Config = {
       height: {
         "99px": "99px",
         "45px": "45px",
+        "37px":"37px",
         "150px": "150px"
       },
       margin: {
@@ -54,6 +57,7 @@ const config: Config = {
       },
       boxShadow: {
         'custom': '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+
       },
       fontFamily: {
         "questrial": ["Questrial", "sans-serif"],
@@ -66,10 +70,12 @@ const config: Config = {
         "67px": "67px"
       },
       top: {
-        "75px": "75px"
+        "75px": "75px",
+        "163px":"163px"
       },
       left: {
         "67px": "67px",
+        "455px":"455px"
       }
     },
   },
