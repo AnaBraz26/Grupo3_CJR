@@ -60,7 +60,7 @@ const config: Config = {
         "67px":"67px"
       },
       top: {
-        "-76px": "-76px"
+        "75px": "75px"
       },
       left: {
         "67px": "67px",
