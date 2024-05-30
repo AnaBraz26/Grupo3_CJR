@@ -15,6 +15,8 @@ const config: Config = {
       },
       textColor: {
         "#222E50": "#222E50",
+        "#000000": "#000000",
+        "#71767B": "#71767B",
       },
       height: {
         "99px": "99px",
@@ -22,13 +24,14 @@ const config: Config = {
         "150px": "150px"
       },
       margin: {
-        "-4px":"-4px",
+        "-4px": "-4px",
         "-2px": "-2px",
         "19px": "19px",
         "37px": "37px",
         "67px": "67px",
         "74px": "74px",
-        "88px": "88px"
+        "83px": "83px",
+        "88px": "88px",
       },
       width: {
         "64px": "64px",
@@ -36,15 +39,18 @@ const config: Config = {
         "150px": "150px",
         "154px": "154px",
         "45px": "45px",
+        "523px": "523px",
+        "630px": "630px",
         "646px": "646px",
       },
       borderRadius: {
         "16px": "16px",
+        "36px": "36px",
         "100px": "100px",
         "235px": "235px"
       },
-      borderColor:{
-        "#7E7E7E":"#7E7E7E"
+      borderColor: {
+        "#7E7E7E": "#7E7E7E"
       },
       boxShadow: {
         'custom': '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
@@ -57,7 +63,7 @@ const config: Config = {
       },
       padding: {
         "151px": "151px",
-        "67px":"67px"
+        "67px": "67px"
       },
       top: {
         "75px": "75px"
