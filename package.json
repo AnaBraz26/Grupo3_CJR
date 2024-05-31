@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "class-validator": "^0.14.1",
-    "formik": "^2.4.6",
-    "yup": "^1.4.0"
-  }
-}
