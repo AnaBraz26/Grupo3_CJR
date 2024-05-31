@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import {Formik, Form, Field} from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 
 const validationSchema = Yup.object({
   email: Yup.string().email("email inválido inserido").required("campo obrigatório"),
@@ -12,11 +13,18 @@ const validationSchema = Yup.object({
   departamento: Yup.string()
 });
 
-const initualValues = { email: "", password: "", username: "", curso: "", departamento: ""}
+const initualValues = { 
+  email: "", 
+  password: "", 
+  username: "", 
+  curso: "", 
+  departamento: ""}
 
 const submitionHandler = (values: any) => {
   console.log(values);
 }
+
+
 
 const registerPage = () => {
 return (

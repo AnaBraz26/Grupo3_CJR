@@ -2,9 +2,18 @@ import NavBar from "../components/Navbar";
 import React, { useState } from "react";
 import CardProfessor from "../components/cardProfessor";
 import BotaoOpcoes from "../components/botaoOpcoes";
+import axios from "axios";
 
-export default function Feed() {
-        
+const getData = async () => {
+  const data = await axios.get("http://localhost:5555/")
+  return data.data;
+}
+
+export default async function Feed() {
+    
+    const data = await getData()
+    console.log(data)
+
     return (
       <>
         <NavBar/>
@@ -24,32 +33,45 @@ export default function Feed() {
       </div>
 
       <div className="flex flex-wrap ml-32">
-        <CardProfessor
-          nome = "All Might"
-          curso = "Educação Física"
-          imgScr = "/allmight.jpg"
-          />
-
-        <CardProfessor
-          nome = "Gojo satoru"
-          curso = "Expansão de Domínio"
-          imgScr = "/gojo.jpeg"
-          />
-
-        <CardProfessor
-          nome = "Professor nome"
-          curso = "Nome da matéria"
-          imgScr = "/user.png"
-          />
-
-        <CardProfessor
-          nome = "Professor nome"
-          curso = "Nome da matéria"
-          imgScr = "/user.png"
-          />
+        <ul>
+          {data.map((professors: any) => (
+            <li key={professors.id}>
+              <CardProfessor
+                nome = {professors.nome}
+                curso = {professors.department}
+                imgScr = "/allmight.jpg"
+               />
+            </li>
+            ))}
+        </ul>
       </div>
 
-      {/* <div>
+      {/*   <CardProfessor
+      //     nome = "All Might"
+      //     curso = "Educação Física"
+      //     imgScr = "/allmight.jpg"
+      //     />
+
+      //   <CardProfessor
+      //     nome = "Gojo satoru"
+      //     curso = "Expansão de Domínio"
+      //     imgScr = "/gojo.jpeg"
+      //     />
+
+      //   <CardProfessor
+      //     nome = "Professor nome"
+      //     curso = "Nome da matéria"
+      //     imgScr = "/user.png"
+      //     />
+
+      //   <CardProfessor
+      //     nome = "Professor nome"
+      //     curso = "Nome da matéria"
+      //     imgScr = "/user.png"
+      //     />
+      // </div>
+
+      /* <div>
         {professores.map(professor) => (
           <cardProfessor
             nome = {cardProfessor.nome}
@@ -59,7 +81,7 @@ export default function Feed() {
         )}
 
       </div>
-  */}       
+      */}
 
         <div className="border-t-4 border-red-300 mt-20 flex items-center justify-center">
           <h1 className=" w-1/2 flex text-[25px] relative top-[20px] left-[150px]"> Todos os professores </h1>
