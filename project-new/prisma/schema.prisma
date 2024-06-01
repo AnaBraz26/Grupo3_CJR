@@ -20,8 +20,8 @@ model Users {
   name  String
   course String?
   department String?
-  createdAt DateTime
-  updateAt DateTime
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
   reviews Reviews[]
   comments Comments[]
 }
@@ -32,8 +32,8 @@ model Reviews {
   professorId Int
   disciplineId Int
 	content String 
-  createAt DateTime
-  updateAt DateTime
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
 	user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
   professor Professors[]
 	discipline Discipline[]
@@ -45,8 +45,8 @@ model Comments {
   usersId Int
   reviewsId Int
 	content String 
-  createAt DateTime
-  updateAt DateTime
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
   users Users @relation(fields: [usersId], references: [id], onDelete: Cascade)
   reviews Reviews @relation(fields: [reviewsId], references: [id], onDelete: Cascade)
 }
@@ -56,8 +56,8 @@ model Professors {
   name  String
   department String
   disciplineId Int
-  createdAt DateTime
-  updateAt DateTime
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
   reviews Reviews[]
   discipline Discipline @relation(fields: [disciplineId], references: [id], onDelete: Cascade)
 }
@@ -67,8 +67,8 @@ model Discipline {
   id Int @default(autoincrement()) @id
   name String
   professorId String
-  creatAt DateTime
-  updateAt DateTime
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
   reviews Reviews[]
   professor Professors[]
 }

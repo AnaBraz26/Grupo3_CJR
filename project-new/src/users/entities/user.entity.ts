@@ -8,8 +8,8 @@ export class User {
     name: string;
     course?: string;
     department?: string;
-    createdAt: Date;
-    updateAt: Date;
+    createdAt?: Date;
+    updateAt?: Date;
     reviews: Review;
     comments: Comments;
 

@@ -4,8 +4,8 @@ export class Discipline {
     id: number;
     name: String;
     professorId: String;
-    creatAt: Date;
-    updateAt: Date;
+    createdAt?: Date;
+    updateAt?: Date;
     reviews: Reviews;
     professor: Professors;
 }
