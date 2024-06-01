@@ -12,5 +12,4 @@ export class User {
     updateAt?: Date;
     reviews: Review;
     comments: Comments;
-
 }

@@ -24,6 +24,17 @@ model Users {
   updateAt DateTime @updatedAt
   reviews Reviews[]
   comments Comments[]
+  UsersOnline UsersOnline[]
+}
+
+model UsersOnline {
+  id    Int     @default(autoincrement()) @id
+  email String  @unique
+  token  String
+  userId Int
+  user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
 }
 
 model Reviews {
