@@ -18,14 +18,15 @@ const initualValues = { email: "", password: "", username: "", curso: "", depart
 
 
 const registerPage = () => {
-  
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPasword] = useState("");
   const [course, setCourse] = useState("");
   const [department, setDepartment] = useState("");
+  const [conflitError, setConflitError] = useState(false);
   const router = useRouter()
-  
+
 
   function submitionHandler(e: any) {
     e.preventDefault();
@@ -40,7 +41,11 @@ const registerPage = () => {
 
       })
       .catch((err: any) => {
-        console.log(err.response)
+        console.log(err.response.status)
+        if (err.response.status === 409) {
+          setConflitError(true);
+        }
+
       })
   }
 
@@ -123,6 +128,7 @@ const registerPage = () => {
                   </div>
                 </Form>
               </Formik>
+              {conflitError ? <h1 className="font-normal text-30px font-questrial text-[red] text-center">Email ja Cadastrado</h1> : <></>}
             </div>
           </div>
         </div>
