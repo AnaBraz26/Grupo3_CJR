@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const validationSchema = Yup.object({
   email: Yup.string().email("email inválido inserido").required("campo obrigatório"),
@@ -24,6 +24,7 @@ const registerPage = () => {
   const [password, setPasword] = useState("");
   const [course, setCourse] = useState("");
   const [department, setDepartment] = useState("");
+  const router = useRouter()
   
 
   function submitionHandler(e: any) {
@@ -35,6 +36,7 @@ const registerPage = () => {
     axios.post("http://localhost:2000/users", body)
       .then(() => {
         console.log("deu bom apenas tem que consertar o link tentei useRouter não funcionou não sei muito oq fazer")
+        router.push('/')
 
       })
       .catch((err: any) => {
