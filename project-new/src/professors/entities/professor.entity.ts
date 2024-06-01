@@ -6,8 +6,8 @@ export class Professor {
     name:  string;
     department: string;
     disciplineId: number;
-    createdAt: Date;
-    updateAt: Date;
+    createdAt?: Date;
+    updateAt?: Date;
     reviews: Review
     discipline: Discipline;
   

@@ -7,8 +7,8 @@ export class Comment {
     usersId: number;
     reviewsId: number;
     content: string; 
-    createAt: Date;
-    updateAt: Date;
+    createdAt?: Date;
+    updateAt?: Date;
     user: User;
     reviews: Review;
 
