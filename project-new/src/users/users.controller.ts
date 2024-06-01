@@ -2,17 +2,21 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe, Valida
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { hashSync } from 'bcrypt';
 
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly usersService: UsersService) { }
 
   @Post()
   async create(@Body() createUserDto: CreateUserDto) {
     const email = await this.usersService.findByEmail(createUserDto.email)
     if (email) {
-      throw new HttpException('User already exists', 409);}
-    return await this.usersService.create(createUserDto); 
+      throw new HttpException('User already exists', 409);
+    }
+    /* console.log(bcrypt) */
+    createUserDto.password = hashSync(createUserDto.password, 10)
+    return await this.usersService.create(createUserDto);
   }
 
   @Get()
