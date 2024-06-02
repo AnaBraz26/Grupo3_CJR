@@ -1,4 +1,14 @@
-export default function Comment() {
+"use client";
+import Comentario from "../modal/Comentario";
+import React, {useState} from "react";
+
+const Comment: React.FC = () => {
+
+    const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  
+    const openModal = () => setIsModalVisible(true);
+    const closeModal = () => setIsModalVisible(false);  
+
     return (
         <div className="w-[630px] bg-[#3EEE9A] rounded-[36px] font-questrial ml-2 mt-3.5 mb-2.5">
             <div className="flex ml-6 items-center mt-3.5">
@@ -21,8 +31,9 @@ export default function Comment() {
             </div>
             <div className="flex items-center justify-between ml-[74px] mb-1.5">
                 <div className="flex items-center">
-                    <img src="comente 1.png" alt="comentario icon" />
+                    <img src="comente 1.png" alt="comentario icon" onClick={openModal} />
                     <h1 className="text-[#222E50] text-sm font-medium">2 comentarios</h1>
+                    <Comentario isVisible={isModalVisible} onClose={closeModal}/>
                 </div>
                 <div className="flex items-center mr-8">
                     <img src="editIcon.png" alt="Edit icon" />
@@ -32,4 +43,6 @@ export default function Comment() {
 
         </div>
     )
-}
+};
+
+export default Comment;
