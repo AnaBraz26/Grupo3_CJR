@@ -3,6 +3,7 @@ import Comentario from "../modal/Comentario";
 import Editar from "../modal/Editar";
 import React, {useState} from "react";
 
+
 const Comment: React.FC = () => {
 
     const [isModalComentVisible, setIsModalComentVisible] = useState<boolean>(false);
@@ -15,7 +16,7 @@ const Comment: React.FC = () => {
     const closeModalEdit = () => setIsModalEditVisible(false);  
 
     return (
-        <div className="w-[630px] bg-[#3EEE9A] rounded-[36px] font-questrial ml-2 mt-3.5 mb-2.5">
+        <div className="w-[620px] bg-[#3EEE9A] rounded-[36px] font-questrial ml-2 mt-3.5 mb-2.5">
             <div className="flex ml-6 items-center mt-3.5">
                 <a href="http://localhost:3000/profile">
                     <img className="rounded-full w-12 " src="morty.jpg" alt="profile image" />
@@ -29,9 +30,11 @@ const Comment: React.FC = () => {
             </div>
             <div className="w-[523px] ml-[83px]">
                 <p className="text-[#222E50] text-sm font-medium">
+                     <a href="http://localhost:3000/comments">
                     Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature
                     from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
                     looked up one of the more obscure Latin
+                    </a>
                 </p>
             </div>
             <div className="flex items-center justify-between ml-[74px] mb-1.5">

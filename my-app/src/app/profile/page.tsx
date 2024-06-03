@@ -46,7 +46,7 @@ const Profile: React.FC = () => {
               </div>
             </div>
             <h1 className="text-[#000000] font-extrabold text-base mt-3 ml-2 mb-2">Publicações</h1>
-            <Comment></Comment>
+            <Comment></Comment>           
             <Comment></Comment>
 
           </div>
