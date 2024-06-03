@@ -1,13 +1,18 @@
 "use client";
 import Comentario from "../modal/Comentario";
+import Editar from "../modal/Editar";
 import React, {useState} from "react";
 
 const Comment: React.FC = () => {
 
-    const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+    const [isModalComentVisible, setIsModalComentVisible] = useState<boolean>(false);
+    const [isModalEditVisible, setIsModalEditVisible] = useState<boolean>(false);
   
-    const openModal = () => setIsModalVisible(true);
-    const closeModal = () => setIsModalVisible(false);  
+    const openModalComent = () => setIsModalComentVisible(true);
+    const closeModalComent = () => setIsModalComentVisible(false);  
+
+    const openModalEdit = () => setIsModalEditVisible(true);
+    const closeModalEdit = () => setIsModalEditVisible(false);  
 
     return (
         <div className="w-[630px] bg-[#3EEE9A] rounded-[36px] font-questrial ml-2 mt-3.5 mb-2.5">
@@ -31,12 +36,17 @@ const Comment: React.FC = () => {
             </div>
             <div className="flex items-center justify-between ml-[74px] mb-1.5">
                 <div className="flex items-center">
-                    <img src="comente 1.png" alt="comentario icon" onClick={openModal} />
+                    <button onClick={openModalComent}>
+                        <img src="comente 1.png" alt="comentario icon"/>
+                    </button>                    
+                    <Comentario isVisible={isModalComentVisible} onClose={closeModalComent}/>
                     <h1 className="text-[#222E50] text-sm font-medium">2 comentarios</h1>
-                    <Comentario isVisible={isModalVisible} onClose={closeModal}/>
                 </div>
                 <div className="flex items-center mr-8">
-                    <img src="editIcon.png" alt="Edit icon" />
+                    <button onClick={openModalEdit}>
+                        <img src="editIcon.png" alt="Edit icon"/>
+                    </button>                    
+                    <Editar isVisible={isModalEditVisible} onClose={closeModalEdit}/>
                     <img className="ml-4"src="lixeira 1.png" alt="Delete icon" />
                 </div>
             </div>

@@ -17,7 +17,7 @@ const Modal_comentar: React.FC<ModalProps> = ({isVisible, onClose}) =>{
     return(
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div className="flex flex-col m-10 items-center bg-green-300 w-1/2 h-3/4 p-5 rounded-xl">
-                <h2 className="text-xl mb-4" > Comentário </h2>
+                <h2 className="text-xl mb-4" > Fazer Comentário </h2>
                 
                 <div className="flex flex-col mt-5 w-full h-full overflow-hidden">
                     <div className="w-full bg-white rounded-xl overflow-auto h-full">
