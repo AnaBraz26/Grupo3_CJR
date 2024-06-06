@@ -1,11 +1,17 @@
+"use client";
 import NavBar from "../components/Navbar";
 import React, { useState } from "react";
 import CardProfessor from "../components/cardProfessor";
 import BotaoOpcoes from "../components/botaoOpcoes";
+import Avaliação from "../modal/Avaliação";
 
-export default function Feed() {
-        
-    return (
+const Feed: React.FC = () => {
+    const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  
+    const openModal = () => setIsModalVisible(true);
+    const closeModal = () => setIsModalVisible(false);  
+  
+   return (
       <>
         <NavBar/>
       <div className="flex items-center justify-center h-32">
@@ -64,10 +70,20 @@ export default function Feed() {
         <div className="border-t-4 border-red-300 mt-20 flex items-center justify-center">
           <h1 className=" w-1/2 flex text-[25px] relative top-[20px] left-[150px]"> Todos os professores </h1>
                   
-          <div className="w-1/2 flex">   
-            <div className="m-auto">
+          <div className="w-1/2 flex">  
+            <div className="justify-center">
+
+              <button onClick={openModal} className="w-40 h-14 rounded-16px border-2 border-white mr-14 bg-[#00ABED] shadow-custom duration-500 hover:duration-500 hover:bg-[#0077B5] mt-8 ml-32"> 
+              <h1 className="font-normal text-l font-questrial text-white text-center">Nova Avaliação</h1>
+              </button>
+
+              <Avaliação isVisible={isModalVisible} onClose={closeModal}/>          
+            </div> 
+
+            <div className="justify-center">
               <BotaoOpcoes></BotaoOpcoes>
             </div>
+
           </div>
 
         </div>
@@ -113,5 +129,7 @@ export default function Feed() {
 
 
     );
-  }
+  };
 
+export default Feed;
+   

@@ -16,5 +16,5 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
     @IsDate()
     createdAt?: Date;
     @IsDate()
-    updateAt: Date;
+    updateAt?: Date;
 }

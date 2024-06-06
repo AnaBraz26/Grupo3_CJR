@@ -8,8 +8,8 @@ export class Review {
   professorId: number;
   disciplineId: number;
   content: string;
-  createAt: Date;
-  updateAt: Date;
+  createdAt?: Date;
+  updateAt?: Date;
   user: Users;
   professor: Professor;
   discipline: Discipline;
