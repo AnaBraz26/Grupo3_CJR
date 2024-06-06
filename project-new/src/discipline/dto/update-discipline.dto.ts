@@ -4,11 +4,11 @@ import { IsDate, IsString } from 'class-validator';
 
 export class UpdateDisciplineDto extends PartialType(CreateDisciplineDto) {
     @IsString()
-    name: String;
+    name?: String;
     @IsString()
-    professorId: String;
+    professorId?: String;
     @IsDate()
-    creatAt: Date;
+    creatAt?: Date;
     @IsDate()
     updateAt: Date;
 }

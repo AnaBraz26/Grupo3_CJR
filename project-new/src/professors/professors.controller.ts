@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe, ValidationPipe } from '@nestjs/common';
 import { ProfessorsService } from './professors.service';
 import { CreateProfessorDto } from './dto/create-professor.dto';
 import { UpdateProfessorDto } from './dto/update-professor.dto';
@@ -8,27 +8,27 @@ export class ProfessorsController {
   constructor(private readonly professorsService: ProfessorsService) {}
 
   @Post()
-  create(@Body() createProfessorDto: CreateProfessorDto) {
-    return this.professorsService.create(createProfessorDto);
+  async create(@Body() createProfessorDto: CreateProfessorDto) {
+    return await this.professorsService.create(createProfessorDto);
   }
 
   @Get()
-  findAll() {
-    return this.professorsService.findAll();
+  async findAll() {
+    return await this.professorsService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.professorsService.findOne(+id);
+  async findOne(@Param('id', ParseIntPipe) id: number) {
+    return await this.professorsService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProfessorDto: UpdateProfessorDto) {
-    return this.professorsService.update(+id, updateProfessorDto);
+  async update(@Param('id') id: number, @Body(ValidationPipe) updateProfessorDto: UpdateProfessorDto) {
+    return await this.professorsService.update(id, updateProfessorDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.professorsService.remove(+id);
+  async remove(@Param('id', ParseIntPipe) id: number) {
+    return await this.professorsService.remove(id);
   }
 }

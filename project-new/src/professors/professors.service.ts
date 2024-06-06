@@ -2,27 +2,46 @@ import { Injectable } from '@nestjs/common';
 import { CreateProfessorDto } from './dto/create-professor.dto';
 import { UpdateProfessorDto } from './dto/update-professor.dto';
 import { PrismaClient } from '@prisma/client';
+import { PrismaService } from 'src/prisma/prisma.service';
+import { Professor } from './entities/professor.entity';
 
 @Injectable()
 export class ProfessorsService {
-  prisma = new PrismaClient();
-  create(createProfessorDto: CreateProfessorDto) {
-    return 'This action adds a new professor';
+  constructor(private readonly prisma: PrismaService) {}
+
+  async create(data: CreateProfessorDto) {
+    const professor = await this.prisma.professors.create({
+        data: data,
+    });
+    return professor;
   }
 
-  findAll() {
-    return `This action returns all professors`;
+  async findAll() {
+    return await this.prisma.professors.findMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} professor`;
+  async findOne(id: number) {
+    return await this.prisma.professors.findUnique({
+        where: {
+            id: id,
+        },
+    });
   }
 
-  update(id: number, updateProfessorDto: UpdateProfessorDto) {
-    return `This action updates a #${id} professor`;
+  async update(id: number, data: UpdateProfessorDto) {
+    return await this.prisma.professors.update({
+      where: {
+          id: id,
+      },
+      data: data
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} professor`;
+  async remove(id: number) {
+    return await this.prisma.professors.delete({
+      where: {
+        id: id,
+      },
+    });
   }
 }
