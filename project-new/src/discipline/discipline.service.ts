@@ -29,9 +29,9 @@ export class DisciplineService {
   async update(id: number, data: UpdateDisciplineDto) {
     return await this.prisma.discipline.update({
       where: {
-          id: id,
+        id: id,
       },
-      data: data
+      data: data,
     });
   }
 
