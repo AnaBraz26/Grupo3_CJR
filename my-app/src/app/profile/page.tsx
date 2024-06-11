@@ -1,7 +1,16 @@
+"use client";
 import NavBar from "../components/Navbar";
 import Comment from "../components/Comment"
+import Pfedit from "../modal/Pfedit";
+import React, {useState} from "react";
 
-export default function Profile() {
+const Profile: React.FC = () => {
+
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  
+  const openModal = () => setIsModalVisible(true);
+  const closeModal = () => setIsModalVisible(false);  
+
   return (
     <>
       <NavBar></NavBar>
@@ -10,7 +19,7 @@ export default function Profile() {
           <img className="mr-[37px] mt-[19px]" src="exitProfile.svg" alt="Botão para sair da página do perfil" />
         </a>
         <div className="w-[646px] flex flex-col bg-[#3EEE9A]">
-          <div className="w-[150px] h-[150px] rounded-full relative z-10 left-[67px] top-[75px]">
+          <div className="w-[150px] h-[150px] rounded-full relative z-2 left-[67px] top-[75px]">
             <a href="http://localhost:3000/profile">
               <img className="rounded-full" src="morty.jpg" alt="profile image" />
             </a>
@@ -30,12 +39,14 @@ export default function Profile() {
                 </div>
               </div>
               <div className="mt-3 w-[154px] font-questrial">
-                <button className="w-[154px] h-[37px] rounded-2xl border-2 border-[#222E50] bg-[#A4FED3] font-normal text-base shadow-custom mb-2">Editar Perfil</button>
+                <button onClick={openModal} className="w-[154px] h-[37px] rounded-2xl border-2 border-[#222E50] bg-[#A4FED3] font-normal text-base shadow-custom mb-2">Editar Perfil</button>
+                <Pfedit isVisible={isModalVisible} onClose={closeModal}/>
+
                 <button className="w-[154px] h-[37px] rounded-2xl border-2 border-[#222E50] bg-[#FEA4A4] font-normal text-base shadow-custom">Excluir Perfil</button>
               </div>
             </div>
             <h1 className="text-[#000000] font-extrabold text-base mt-3 ml-2 mb-2">Publicações</h1>
-            <Comment></Comment>
+            <Comment></Comment>           
             <Comment></Comment>
 
           </div>
@@ -43,4 +54,6 @@ export default function Profile() {
       </div>
     </>
   );
-}
+};
+
+export default Profile;
