@@ -7,8 +7,6 @@ export class UpdateReviewDto extends PartialType(CreateReviewDto) {
     content?: string;
     @IsInt()
     disciplineId?: number;
-    @IsDate()
-    date?: Date;
     @IsInt()
     userId?: number;
     @IsInt()
