@@ -5,8 +5,6 @@ export class CreateReviewDto{
     content: string;
     @IsInt()
     disciplineId: number;
-    @IsDate()
-    date: Date;
     @IsInt()
     userId: number;
     @IsInt()
