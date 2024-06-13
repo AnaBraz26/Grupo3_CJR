@@ -4,7 +4,7 @@ export class CreateDisciplineDto {
     @IsString()
     name: string;
     @IsString()
-    professorId: string;
+    professorId: number;
     @IsDate()
     creatAt: Date;
     @IsDate()
