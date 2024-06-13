@@ -5,8 +5,8 @@ import { IsDate, IsInt, IsString } from 'class-validator';
 export class UpdateDisciplineDto extends PartialType(CreateDisciplineDto) {
     @IsString()
     name?: string;
-    @IsInt()
-    professorId?: number;
+    @IsString()
+    professorId?: string;
     @IsDate()
     creatAt?: Date;
     @IsDate()
