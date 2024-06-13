@@ -32,7 +32,7 @@ export default function Profile() {
               <div className="mt-3 w-[154px] font-questrial">
               </div>
             </div>
-            <h1 className="text-[#000000] font-extrabold text-base mt-3 ml-2 mb-2">Publicações</h1>
+            <h1 className="text-[#000000] font-extrabold text-base mt-3 ml-2 mb-2">Avaliações</h1>
             
             <Comment></Comment>
 
