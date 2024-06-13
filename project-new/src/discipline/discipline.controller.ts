@@ -25,7 +25,6 @@ export class DisciplineController {
   @Put(':id')
   async update(@Param('id') id: number, @Body(ValidationPipe) updateDisciplineDto: UpdateDisciplineDto) {
     id = Number(id)
-    console.log(id,typeof(id))
     return await this.disciplineService.update(id, updateDisciplineDto);
   }
 

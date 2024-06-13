@@ -18,6 +18,8 @@ function Modal_review({onClose}: Modal_reviewProps){
     const [discipline, setDiscipline] = useState('');
     const [editorContent, setEditorContent] = useState('');
     const [review, setReview] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+     /*{name:"", professorId:0}            department:"",disciplineId:0}*/
+
 //}
 
 const handleProfessorNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,15 +38,51 @@ const handleEditorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEditorContent(e.target.value);
 };
 
-const handleSubmit = async () => {
+const handleSubmit = async (e:any) => {
+    e.preventDefault();
     const evaluationData = {
         professorName: professorName,
         department: department,
         discipline: discipline,
         evaluation: editorContent,
     };
-
-    axios.post('http://localhost:2000/reviews', evaluationData)
+    const diciplineData = {
+        name: discipline, 
+        professorId: 0
+    };
+    const professorData ={
+        name: professorName,
+        department: department,
+        disciplineId: 0
+    }
+    axios.post("http://localhost:2000/discipline", diciplineData )
+        .then((data)=>{
+            professorData.disciplineId = (data.data.id)
+            axios.post('http://localhost:2000/professors', professorData)
+                .then((data)=>{
+                    diciplineData.professorId = (data.data.id)
+                    axios.put(`http://localhost:2000/discipline/${professorData.disciplineId}`, diciplineData)
+                        .then((data)=>{
+                            console.log(data) 
+                            /* Axios do review*/
+                        })
+                        .catch((err)=>{
+                            console.log(err);
+                        })
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    
+    /* 
+    }
+    
+    axios.post('http://localhost:2000/professor', ) */
+    /* axios.post('http://localhost:2000/reviews', evaluationData)
       .then(() => {
         setReview({ type: 'success', message: 'Avaliação enviada com sucesso!' });
         setTimeout(() => {
@@ -54,7 +92,7 @@ const handleSubmit = async () => {
       })
       .catch(() => {
         setReview({ type: 'error', message: 'Ocorreu um erro ao enviar a avaliação. Por favor, tente novamente.' });
-      })
+      }) */
 };
 
 // const ReactQuill = dynamic(() => import('react-quill'), {ssr: false})
@@ -73,8 +111,8 @@ const handleSubmit = async () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div className="flex flex-col m-10 items-center bg-green-300 w-0,25 p-5 rounded-xl">
                 <h1 className="text-xl mb-4" > Avaliação de Professor </h1>
-                <Formik initialValues={initualValues} onSubmit= {(e:any) => handleSubmit()}>
-                    <Form onSubmit={(e:any) => handleSubmit()}>
+                <Formik initialValues={initualValues} onSubmit= {(e:any) => handleSubmit(e)}>
+                    <Form onSubmit={(e:any) => handleSubmit(e)}>
                         <h2> Coloque apenas o primeiro e último nome do professor:</h2>
                         {/* <input className="justify-center mt-5 block w-full px-3 py-2 border bg-white border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" 
                             placeholder="Nome Professor" value={professorName} onChange={handleProfessorNameChange}></input>
@@ -127,7 +165,7 @@ const handleSubmit = async () => {
                                 /> */}
                                 <Field
                                 value = {review}
-                                onChange={setEditorContent}
+                                onChange={handleEditorChange}
                                 type="review"
                                 placeholder="Avaliação"
                                 id="review"
