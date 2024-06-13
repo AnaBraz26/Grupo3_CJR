@@ -3,7 +3,7 @@ import { IsDate, IsString } from "class-validator";
 export class CreateDisciplineDto {
     @IsString()
     name: string;
-    @IsString()
+    @IsInt()
     professorId: number;
     @IsDate()
     creatAt: Date;
