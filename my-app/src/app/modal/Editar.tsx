@@ -45,12 +45,12 @@ function Modal_editar({onClose}: Modal_editProps){
       
     };
 
-//const Modal_editar: React.FC<ModalProps> = ({isVisible, onClose}) =>{
-//    const [editorContent, setEditorContent] = React.useState<string>('');
+const Modal_editar: React.FC<Modal_editProps> = ({isVisible, onClose}) =>{
+    const [editorContent, setEditorContent] = React.useState<string>('');
 
-//    if(!isVisible) return null;
+    if(!isVisible) return null;
 
-const [editorContent, setEditorContent] = React.useState<string>('');
+//const [editorContent, setEditorContent] = React.useState<string>('');
 
     return(
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
@@ -58,12 +58,21 @@ const [editorContent, setEditorContent] = React.useState<string>('');
                 <h2 className="text-xl mb-4" > Editar Comentário </h2>
                 
                 <div className="flex flex-col mt-5 w-full h-full overflow-hidden">
-                    <div className="w-full bg-white rounded-xl overflow-auto h-full">
-                        <ReactQuill
-                            value={editorContent}
-                            onChange={setEditorContent}
-                            className="h-[70vh]" 
-                        />
+                    <div className="w-full bg-green-300 rounded-xl overflow-auto h-full">
+                    <Formik initialValues={initualValues} onSubmit= {(e:any) => handleSubmit(e)}>
+                                        <Form onSubmit={(e:any) => handleSubmit(e)}>
+                                            <h2> Edite seu comentario:</h2>
+                                            <Field
+                                            value={content}
+                                            onChange={handleContentChange}
+                                            type="comentario"
+                                            content="content"
+                                            placeholder="escreva aqui!"
+                                            id= "content"
+                                            className="mt-1 block w-full px-3 py-20 border bg-white border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                                            />
+                                        </Form>
+                    </Formik>
                      </div>
                 </div>
 
@@ -75,5 +84,6 @@ const [editorContent, setEditorContent] = React.useState<string>('');
         </div>
     );
 };
+}
 
 export default Modal_editar;

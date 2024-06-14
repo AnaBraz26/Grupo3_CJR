@@ -25,7 +25,9 @@ function Modal_comentar({onClose}: Modal_commentProps){
     const [conflitError, setConflitError] = useState(false);
     const router = useRouter()
 
-
+    const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setContent(e.target.value);
+    };
 
 const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -43,24 +45,33 @@ const handleSubmit = async (e: any) => {
   
 };
 
-/*const Modal_comentar: React.FC<ModalProps> = ({isVisible, onClose}) =>{
+const Modal_comentar: React.FC<ModalProps> = ({isVisible, onClose}) =>{
     const [editorContent, setEditorContent] = React.useState<string>('');
 
-    if(!isVisible) return null;  */
+    if(!isVisible) return null;  
 
-const [editorContent, setEditorContent] = React.useState<string>('');
+//const [editorContent, setEditorContent] = React.useState<string>('');
     return(
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div className="flex flex-col m-10 items-center bg-green-300 w-1/2 h-3/4 p-5 rounded-xl">
                 <h2 className="text-xl mb-4" > Fazer Comentário </h2>
                 
                 <div className="flex flex-col mt-5 w-full h-full overflow-hidden">
-                    <div className="w-full bg-white rounded-xl overflow-auto h-full">
-                        <ReactQuill
-                            value={editorContent}
-                            onChange={setEditorContent}
-                            className="h-[70vh]" 
-                        />
+                <div className="w-full bg-green-300 rounded-xl overflow-auto h-full">
+                    <Formik initialValues={initualValues} onSubmit= {(e:any) => handleSubmit(e)}>
+                                        <Form onSubmit={(e:any) => handleSubmit(e)}>
+                                            <h2> Edite seu comentario:</h2>
+                                            <Field
+                                            value={content}
+                                            onChange={handleContentChange}
+                                            type="comentario"
+                                            content="content"
+                                            placeholder="escreva aqui!"
+                                            id= "content"
+                                            className="mt-1 block w-full px-3 py-20 border bg-white border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                                            />
+                                        </Form>
+                    </Formik>
                      </div>
                 </div>
 
@@ -72,5 +83,5 @@ const [editorContent, setEditorContent] = React.useState<string>('');
         </div>
     );
 };
-
+}
 export default Modal_comentar;
