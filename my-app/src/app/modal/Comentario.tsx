@@ -9,7 +9,7 @@ import * as Yup from "yup";
 const ReactQuill = dynamic(() => import('react-quill'), {ssr: false})
 
 interface Modal_commentProps{
-    isVisible: boolean;
+    //isVisible: boolean;
     onClose: () => void;
 }
 
@@ -45,10 +45,10 @@ const handleSubmit = async (e: any) => {
   
 };
 
-const Modal_comentar: React.FC<Modal_commentProps> = ({isVisible, onClose}) =>{
-    const [editorContent, setEditorContent] = React.useState<string>('');
+//const Modal_comentar: React.FC<Modal_commentProps> = ({isVisible, onClose}) =>{
+//    const [editorContent, setEditorContent] = React.useState<string>('');
 
-    if(!isVisible) return null;  
+//    if(!isVisible) return null;  
 
 //const [editorContent, setEditorContent] = React.useState<string>('');
     return(
@@ -59,29 +59,27 @@ const Modal_comentar: React.FC<Modal_commentProps> = ({isVisible, onClose}) =>{
                 <div className="flex flex-col mt-5 w-full h-full overflow-hidden">
                 <div className="w-full bg-green-300 rounded-xl overflow-auto h-full">
                     <Formik initialValues={initualValues} onSubmit= {(e:any) => handleSubmit(e)}>
-                                        <Form onSubmit={(e:any) => handleSubmit(e)}>
-                                            <h2> Edite seu comentario:</h2>
-                                            <Field
-                                            value={content}
-                                            onChange={handleContentChange}
-                                            type="comentario"
-                                            content="content"
-                                            placeholder="escreva aqui!"
-                                            id= "content"
-                                            className="mt-1 block w-full px-3 py-20 border bg-white border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                                            />
-                                        </Form>
+                        <Form onSubmit={(e:any) => handleSubmit(e)}>
+                            <h2> Escreva seu comentario:</h2>
+                                <Field
+                                value={content}
+                                onChange={handleContentChange}
+                                type="comentario"
+                                content="content"
+                                placeholder="escreva aqui!"
+                                id= "content"
+                                className="mt-1 block w-full px-3 py-20 border bg-white border-black shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                                />
+                            <div className="w-1/2 flex justify-center">
+                                <button type="button" onClick={onClose} className="flex m-10 items-center px-6 py-3 bg-red-500 text-white rounded-md"> Cancelar </button>
+                                <button type="submit" className="flex m-10 items-center px-6 py-3 bg-blue-500 text-white rounded-md"> Comentar </button>
+                            </div>
+                        </Form>
                     </Formik>
                      </div>
-                </div>
-
-                <div className="w-1/2 flex justify-center">
-                    <button onClick={onClose} className="flex m-10 items-center px-6 py-3 bg-red-500 text-white rounded-md"> Cancelar </button>
-                    <button onClick={onClose} className="flex m-10 items-center px-6 py-3 bg-blue-500 text-white rounded-md"> Comentar </button>
                 </div>
             </div>
         </div>
     );
 };
-}
 export default Modal_comentar;
