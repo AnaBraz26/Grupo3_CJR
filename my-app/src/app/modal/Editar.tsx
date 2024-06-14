@@ -1,18 +1,56 @@
-import React from "react";
+import React, { useState} from "react";
+import { Formik, Form, Field } from "formik";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import * as Yup from "yup";
 
 const ReactQuill = dynamic(() => import('react-quill'), {ssr: false})
 
-interface ModalProps{
+interface Modal_editProps{
     isVisible: boolean;
     onClose: () => void;
 }
 
-const Modal_editar: React.FC<ModalProps> = ({isVisible, onClose}) =>{
-    const [editorContent, setEditorContent] = React.useState<string>('');
+const validationSchema = Yup.object({
+    content: Yup.string().required("campo obrigatório"),
+  });
 
-    if(!isVisible) return null;
+const initualValues = { content: "" }
+
+function Modal_editar({onClose}: Modal_editProps){
+
+    const [content, setContent] = useState("");
+    const [conflitError, setConflitError] = useState(false);
+    const router = useRouter()
+
+    const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setContent(e.target.value);
+    };
+
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+        const body = { content: content }
+    
+        axios.put("http://localhost:2000/comments", body)
+            .then(() => {
+              console.log("deu bom")
+              router.push('/')
+      
+            })
+            .catch((err) => {
+              console.log(err)
+              })
+      
+    };
+
+//const Modal_editar: React.FC<ModalProps> = ({isVisible, onClose}) =>{
+//    const [editorContent, setEditorContent] = React.useState<string>('');
+
+//    if(!isVisible) return null;
+
+const [editorContent, setEditorContent] = React.useState<string>('');
 
     return(
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
