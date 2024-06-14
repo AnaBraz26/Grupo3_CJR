@@ -45,7 +45,7 @@ const handleSubmit = async (e: any) => {
   
 };
 
-const Modal_comentar: React.FC<ModalProps> = ({isVisible, onClose}) =>{
+const Modal_comentar: React.FC<Modal_commentProps> = ({isVisible, onClose}) =>{
     const [editorContent, setEditorContent] = React.useState<string>('');
 
     if(!isVisible) return null;  
