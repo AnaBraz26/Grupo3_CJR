@@ -9,7 +9,7 @@ import * as Yup from "yup";
 const ReactQuill = dynamic(() => import('react-quill'), {ssr: false})
 
 interface Modal_editProps{
-    //isVisible: boolean;
+    isVisible: boolean;
     onClose: () => void;
 }
 
@@ -35,7 +35,7 @@ const handleSubmit = async (e: any) => {
 
     axios.put("http://localhost:2000/comments", body)
         .then(() => {
-            console.log("deu bom")
+            console.log("put bodys")
             router.push('/')
     
         })
@@ -45,10 +45,10 @@ const handleSubmit = async (e: any) => {
     
 };
 
-/*const Modal_editar: React.FC<Modal_editProps> = ({isVisible, onClose}) =>{
-    const [editorContent, setEditorContent] = React.useState<string>('');
+const Modal_editar: React.FC<Modal_editProps> = ({isVisible, onClose}) =>{//
+    const [editorContent, setEditorContent] = React.useState<string>('');//
 
-    if(!isVisible) return null;*/
+    if(!isVisible) return null;//
 
 //const [editorContent, setEditorContent] = React.useState<string>('');
 
@@ -85,6 +85,6 @@ const handleSubmit = async (e: any) => {
         </div>
     );
 };
-
+} //
 
 export default Modal_editar;

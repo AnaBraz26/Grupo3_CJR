@@ -9,7 +9,7 @@ import * as Yup from "yup";
 const ReactQuill = dynamic(() => import('react-quill'), {ssr: false})
 
 interface Modal_commentProps{
-    //isVisible: boolean;
+    isVisible: boolean;//
     onClose: () => void;
 }
 
@@ -35,7 +35,7 @@ const handleSubmit = async (e: any) => {
 
     axios.post("http://localhost:2000/comments", body)
         .then(() => {
-          console.log("deu bom")
+          console.log("post body")
           router.push('/')
   
         })
@@ -45,10 +45,10 @@ const handleSubmit = async (e: any) => {
   
 };
 
-//const Modal_comentar: React.FC<Modal_commentProps> = ({isVisible, onClose}) =>{
-//    const [editorContent, setEditorContent] = React.useState<string>('');
+const Modal_comentar: React.FC<Modal_commentProps> = ({isVisible, onClose}) =>{ //
+    const [editorContent, setEditorContent] = React.useState<string>(''); //
 
-//    if(!isVisible) return null;  
+    if(!isVisible) return null;  //
 
 //const [editorContent, setEditorContent] = React.useState<string>('');
     return(
@@ -82,4 +82,5 @@ const handleSubmit = async (e: any) => {
         </div>
     );
 };
+}
 export default Modal_comentar;
