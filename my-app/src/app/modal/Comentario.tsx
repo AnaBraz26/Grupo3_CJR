@@ -5,7 +5,6 @@ import "react-quill/dist/quill.snow.css";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import * as Yup from "yup";
-import { Content } from "next/font/google";
 
 const ReactQuill = dynamic(() => import('react-quill'), {ssr: false})
 
