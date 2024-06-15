@@ -10,5 +10,5 @@ export class UpdateDisciplineDto extends PartialType(CreateDisciplineDto) {
     @IsDate()
     creatAt?: Date;
     @IsDate()
-    updateAt: Date;
+    updateAt?: Date;
 }
