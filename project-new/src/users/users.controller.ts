@@ -1,14 +1,17 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe, ValidationPipe, Put, HttpException } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe, ValidationPipe, Put, HttpException, HttpCode } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { hashSync } from 'bcrypt';
+import { compareSync, hashSync } from 'bcrypt';
+import { CreateUsersOnlineDto } from './dto/create-users-online.dto';
+import { v4 as uuid } from 'uuid';
 
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) { }
 
-  @Post()
+  @Post('register')
+  @HttpCode(201)
   async create(@Body() createUserDto: CreateUserDto) {
     const email = await this.usersService.findByEmail(createUserDto.email)
     if (email) {
@@ -18,6 +21,22 @@ export class UsersController {
     createUserDto.password = hashSync(createUserDto.password, 10)
     return await this.usersService.create(createUserDto);
   }
+
+  @Post()
+  @HttpCode(200)
+  async login(@Body() CreateUsersOnlineDto: CreateUsersOnlineDto) {
+    const email = await this.usersService.findByEmail(CreateUsersOnlineDto.email)
+    if (!email) {
+      throw new HttpException('User not found in our database', 404);
+    }
+    if (!compareSync(CreateUsersOnlineDto.password, email.password)){
+      throw new HttpException('User with email or password incorrect', 403)
+    }
+    const token = uuid();
+    
+    return await this.usersService.login({email: CreateUsersOnlineDto.email, token: token, user: email.id });  
+  }
+
 
 
   @Get()
