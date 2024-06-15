@@ -13,21 +13,25 @@ export default function NavBar() {
                 </a>
             </div>   */}   
 
-            {/*<a href = "http://localhost:3000/">
-            <button className="w-154px h-14 rounded-16px border-2 border-white mr-14 bg-[#00ABED] shadow-custom duration-500 hover:duration-500 hover:bg-[#0077B5]" >
-                <h1 className="font-normal text-30px font-questrial text-white text-center">Login</h1>
-            </button>  
-            </a>*/}
-
-            <div className="flex items-center justify-round pr-9">
-                <img className="cursor-pointer w-45px h-45px mr-74px" src="notification.png" alt="Icone para olhar notificação" />
-                <a href = "http://localhost:3000/profile">
-                <img className="cursor-pointer rounded-100px mr-19px w-64px" src="morty.jpg" alt="Foto de pergil" />
+            {/* if(!localStorage.getItem("user"))
+            {
+                <a href = "http://localhost:3000/">
+                <button className="w-154px h-14 rounded-16px border-2 border-white mr-14 bg-[#00ABED] shadow-custom duration-500 hover:duration-500 hover:bg-[#0077B5]" >
+                    <h1 className="font-normal text-30px font-questrial text-white text-center">Login</h1>
+                </button>  
                 </a>
-                <a href="http://localhost:3000/">
-                <img className="cursor-pointer" src="exit.svg" alt="Icone de saída" />
-                </a>
-            </div>
+            }
+            else{ */}
+                <div className="flex items-center justify-round pr-9">
+                    <img className="cursor-pointer w-45px h-45px mr-74px" src="notification.png" alt="Icone para olhar notificação" />
+                    <a href = "http://localhost:3000/profile">
+                    <img className="cursor-pointer rounded-100px mr-19px w-64px" src="morty.jpg" alt="Foto de pergil" />
+                    </a>
+                    <a href="http://localhost:3000/">
+                    <img className="cursor-pointer" src="exit.svg" alt="Icone de saída" />
+                    </a>
+                </div>
+            
         </div>
     );
 }
