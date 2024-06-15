@@ -11,8 +11,8 @@ export class UpdateReviewDto extends PartialType(CreateReviewDto) {
     userId?: number;
     @IsInt()
     professorId?: number;
-    @IsDate()
-    createAt?: Date;
-    @IsDate()
-    updateAt: Date;
+    // @IsDate()
+    // createdAt?: Date;
+    // @IsDate()
+    // updateAt?: Date;
 }
