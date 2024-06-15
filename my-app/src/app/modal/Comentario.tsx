@@ -6,10 +6,10 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import * as Yup from "yup";
 
-const ReactQuill = dynamic(() => import('react-quill'), {ssr: false})
+//const ReactQuill = dynamic(() => import('react-quill'), {ssr: false})
 
 interface Modal_commentProps{
-    isVisible: boolean;//
+    isVisible: boolean;
     onClose: () => void;
 }
 
@@ -22,8 +22,8 @@ const initualValues = { content: "" }
 function Modal_comentar({onClose}: Modal_commentProps){
 
     const [content, setContent] = useState("");
-    const [conflitError, setConflitError] = useState(false);
-    const router = useRouter()
+    //const [conflitError, setConflitError] = useState(false);
+    //const router = useRouter()
 
     const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setContent(e.target.value);
@@ -36,7 +36,7 @@ const handleSubmit = async (e: any) => {
     axios.post("http://localhost:2000/comments", body)
         .then(() => {
           console.log("post body")
-          router.push('/')
+          //router.push('/')
   
         })
         .catch((err) => {
@@ -45,12 +45,10 @@ const handleSubmit = async (e: any) => {
   
 };
 
-const Modal_comentar: React.FC<Modal_commentProps> = ({isVisible, onClose}) =>{ //
-    const [editorContent, setEditorContent] = React.useState<string>(''); //
+//const Modal_comentar: React.FC<Modal_commentProps> = ({isVisible, onClose}) =>{ //
+//    const [editorContent, setEditorContent] = React.useState<string>(''); //
 
-    if(!isVisible) return null;  //
-
-//const [editorContent, setEditorContent] = React.useState<string>('');
+//    if(!isVisible) return null;  //
     return(
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div className="flex flex-col m-10 items-center bg-green-300 w-1/2 h-3/4 p-5 rounded-xl">
@@ -82,5 +80,5 @@ const Modal_comentar: React.FC<Modal_commentProps> = ({isVisible, onClose}) =>{ 
         </div>
     );
 };
-}
+
 export default Modal_comentar;
