@@ -3,6 +3,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import {PrismaClient} from '@prisma/client'
 import { PrismaService } from 'src/prisma/prisma.service';
+import { CreateUsersOnlineDto } from './dto/create-users-online.dto';
 
 @Injectable()
 export class UsersService {
@@ -13,6 +14,10 @@ export class UsersService {
       data: data,
     });
     return user;
+  }
+
+  async login(data: {email: string, token: string, user: number}){
+    return data
   }
 
   async findAll() {

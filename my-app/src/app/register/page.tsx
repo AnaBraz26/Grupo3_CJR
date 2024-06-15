@@ -34,7 +34,7 @@ const registerPage = () => {
     console.log(body)
     console.log('aaaa')
 
-    axios.post("http://localhost:2000/users", body)
+    axios.post("http://localhost:2000/users/register", body)
       .then(() => {
         console.log("deu bom apenas tem que consertar o link tentei useRouter não funcionou não sei muito oq fazer")
         router.push('/')

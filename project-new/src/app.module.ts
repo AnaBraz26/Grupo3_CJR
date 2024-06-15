@@ -6,10 +6,9 @@ import { ReviewsModule } from './reviews/reviews.module';
 import { ProfessorsModule } from './professors/professors.module';
 import { CommentsModule } from './comments/comments.module';
 import { DisciplineModule } from './discipline/discipline.module';
-import { UsersOnlineModule } from './users-online/users-online.module';
 
 @Module({
-  imports: [UsersModule, ReviewsModule, ProfessorsModule, CommentsModule, DisciplineModule, UsersOnlineModule],
+  imports: [UsersModule, ReviewsModule, ProfessorsModule, CommentsModule, DisciplineModule],
   controllers: [AppController],
   providers: [AppService],
 })
