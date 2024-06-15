@@ -1,5 +1,5 @@
 import NavBar from "../components/Navbar";
-import Comment from "../components/Comment"
+import Respostas from "../components/Respostas"
 
 export default function Profile() {
   return (
@@ -34,7 +34,7 @@ export default function Profile() {
             </div>
             <h1 className="text-[#000000] font-extrabold text-base mt-3 ml-2 mb-2">Avaliações</h1>
             
-            <Comment></Comment>
+            <Respostas></Respostas>
 
           </div>
         </div>

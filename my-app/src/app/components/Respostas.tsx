@@ -22,7 +22,7 @@ const Respostas: React.FC = () => {
             <div>
                 <div className="w-[630px] font-questrial border-x border-[#7E7E7E] border-b flex flex-col min-h-full bg-[#FFFFFF]" />
                     <div className="flex border-b border-[#7E7E7E]" />
-                    <div className="flex ml-20 items-center mt-3.5">
+                        <div className="flex ml-20 items-center mt-3.5">
                             <a href="http://localhost:3000/profile">
                                 <img className="rounded-full w-12 " src="bart.png" alt="profile image" />
                             </a>
