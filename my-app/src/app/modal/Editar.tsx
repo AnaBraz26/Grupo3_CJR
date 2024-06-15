@@ -9,7 +9,7 @@ import * as Yup from "yup";
 //const ReactQuill = dynamic(() => import('react-quill'), {ssr: false})
 
 interface Modal_editProps{
-    //isVisible: boolean;
+    isVisible: boolean;
     onClose: () => void;
 }
 
