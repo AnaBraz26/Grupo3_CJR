@@ -39,7 +39,7 @@ export default function Home() {
       })
   }
 
-  if (localStorage.getItem("token")) {
+  if (localStorage.getItem("UserId")) {
     router.push('/feed')
   }
   return (

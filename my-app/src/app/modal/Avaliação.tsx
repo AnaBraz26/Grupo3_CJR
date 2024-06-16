@@ -24,7 +24,9 @@ function Modal_review({onClose, isVisible}: Modal_reviewProps){
     const [discipline, setDiscipline] = useState('');
     const [editorContent, setEditorContent] = useState('');
     const [review, setReview] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
-
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+    const [modalVisible, setModalVisible] = useState(true);
+    
 const handleProfessorNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setProfessorName(e.target.value);
 };
@@ -82,12 +84,20 @@ const handleSubmit = async (e:any) => {
                                 reviewData.userId = Number(localStorage.getItem("UserId"))
                                 axios.post(`http://localhost:2000/reviews/`, reviewData)
                                 .then((data)=>{
+                                    setReview({ type: 'success', message: 'Avaliação enviada' });
+                                    setModalVisible(false);
+                                    setShowSuccessMessage(true);
+                                    
                                     setTimeout(() => {
+                                        setShowSuccessMessage(false);
                                         onClose();
-                                    }, 3000)
+                                    }, 4000)
                                     
                                 })
                                 .catch((err)=>{
+                                    setReview({ type: 'error', message: 'Erro ao enviar avaliação' });
+                                    setShowSuccessMessage(true);
+                                    setModalVisible(true);
                                     console.log(err);
                                 })
 
@@ -165,11 +175,11 @@ const handleSubmit = async (e:any) => {
                     </Form>
                 </Formik>
 
-                 {/* {review &&(
+                 {review &&(
                     <div className={`mt-4 p-4 rounded ${review.type === 'success' ? 'bg-green-200' : 'bg-red-200'}`}>
                     {review.message}
                     </div>                 
-                )} * */}
+                )} 
             </div>
         </div>
     );
