@@ -75,6 +75,5 @@ const handleSubmit = async (e: any) => {
         </div>
     );
 };
-}
 
 export default Modal_editar;

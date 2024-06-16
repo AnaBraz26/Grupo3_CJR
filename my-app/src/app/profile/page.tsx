@@ -3,8 +3,14 @@ import NavBar from "../components/Navbar";
 import Comment from "../components/Comment"
 import Pfedit from "../modal/Pfedit";
 import React, {useState} from "react";
+import { useRouter } from "next/navigation";
 
 const Profile: React.FC = () => {
+
+  const router = useRouter()
+  if (!localStorage.getItem("token")){
+    router.push('/feed')
+  }
 
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   
