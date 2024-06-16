@@ -23,7 +23,9 @@ const initualValues = {name: ""}
 
 const Feed: React.FC = () => {
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
-  
+    const [professorName, setProfessorName] = useState('');
+    const [department, setDepartment] = useState('');
+
     const openModal = () => setIsModalVisible(true);
     const closeModal = () => setIsModalVisible(false);  
 
@@ -54,6 +56,28 @@ const Feed: React.FC = () => {
         router.push('/')
       }
     
+      const handleShow = async (e:any) =>{
+        e.preventDefault();
+        const professorData ={
+          name: professorName,
+          department: department
+        }
+
+        axios.get("http://localhost:2000/professors")
+          .then((data) => {
+            console.log(data);
+            return(              
+            <CardProfessor
+                nome = {professorData.name}
+                curso = {professorData.department}
+                imgScr = "/user.png"
+           />)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+
+      }
 
    return (
       <>
@@ -88,11 +112,6 @@ const Feed: React.FC = () => {
       </div>
 
       <div className="flex flex-wrap ml-32">
-        <CardProfessor
-          nome = "All Might"
-          curso = "Educação Física"
-          imgScr = "/allmight.jpg"
-          />
 
         <CardProfessor
           nome = "Gojo satoru"
@@ -111,19 +130,7 @@ const Feed: React.FC = () => {
           curso = "Nome da matéria"
           imgScr = "/user.png"
           />
-      </div>
-
-      {/* <div>
-        {professores.map(professor) => (
-          <cardProfessor
-            nome = {cardProfessor.nome}
-            curso = {cardProfessor.curso}
-            imgScr = {cardProfessor.imgScr}
-
-        )}
-
-      </div>
-  */}       
+      </div>   
 
         <div className="border-t-4 border-red-300 mt-20 flex items-center justify-center">
           <h1 className=" w-1/2 flex text-[25px] relative top-[20px] left-[150px]"> Todos os professores </h1>
@@ -134,9 +141,9 @@ const Feed: React.FC = () => {
               <button onClick={openModal} className="w-40 h-14 rounded-16px border-2 border-white mr-14 bg-[#00ABED] shadow-custom duration-500 hover:duration-500 hover:bg-[#0077B5] mt-8 ml-32"> 
               <h1 className="font-normal text-l font-questrial text-white text-center">Nova Avaliação</h1>
               </button>
+              {/* <Avaliação isVisible={isModalVisible} onClose={closeModal}/>   */}
 
-              {isModalVisible && <Avaliação onClose={closeModal}/>}
-              {/* <Avaliação isVisible={isModalVisible} onClose={closeModal}/>           */}
+                       
             </div> 
 
             <div className="justify-center">
