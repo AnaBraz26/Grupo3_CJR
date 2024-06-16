@@ -5,6 +5,7 @@ import {useState} from 'react';
 import { Formik, Form, Field } from "formik";
 
 interface Modal_reviewProps{
+    isVisible: boolean;
     onClose: () => void;
 }
 
@@ -17,7 +18,7 @@ interface ReviewType{
 
 const initualValues = {professorName: "", department: "", discipline: "", editorContent:""}
 
-function Modal_review({onClose}: Modal_reviewProps){
+function Modal_review({onClose, isVisible}: Modal_reviewProps){
     const [professorName, setProfessorName] = useState('');
     const [department, setDepartment] = useState('');
     const [discipline, setDiscipline] = useState('');
@@ -81,7 +82,10 @@ const handleSubmit = async (e:any) => {
                                 reviewData.userId = Number(localStorage.getItem("UserId"))
                                 axios.post(`http://localhost:2000/reviews/`, reviewData)
                                 .then((data)=>{
-                                    console.log(data)        
+                                    setTimeout(() => {
+                                        onClose();
+                                    }, 3000)
+                                    
                                 })
                                 .catch((err)=>{
                                     console.log(err);
@@ -161,11 +165,11 @@ const handleSubmit = async (e:any) => {
                     </Form>
                 </Formik>
 
-                 {review &&(
+                 {/* {review &&(
                     <div className={`mt-4 p-4 rounded ${review.type === 'success' ? 'bg-green-200' : 'bg-red-200'}`}>
                     {review.message}
                     </div>                 
-                )} *
+                )} * */}
             </div>
         </div>
     );
