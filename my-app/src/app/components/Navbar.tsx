@@ -5,7 +5,7 @@ export default function NavBar() {
     const UserId = localStorage.getItem("UserId")
     const router = useRouter()
 
-    function deslogar(){
+    function deslogar() {
         localStorage.clear();
         router.push('/')
     }
@@ -23,7 +23,7 @@ export default function NavBar() {
                     <a href="http://localhost:3000/profile">
                         <img className="cursor-pointer rounded-100px mr-19px w-64px" src="morty.jpg" alt="Foto de pergil" />
                     </a>
-                        <img onClick={()=>deslogar()} className="cursor-pointer" src="exit.svg" alt="Icone de saída" />
+                    <img onClick={() => deslogar()} className="cursor-pointer" src="exit.svg" alt="Icone de saída" />
                 </div> :
                 <a href="http://localhost:3000/">
                     <button className="w-154px h-14 rounded-16px border-2 border-white mr-14 bg-[#00ABED] shadow-custom duration-500 hover:duration-500 hover:bg-[#0077B5]" >
