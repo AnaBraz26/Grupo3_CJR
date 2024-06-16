@@ -146,9 +146,7 @@ const Feed: React.FC = () => {
               {isModalVisible && (
               <Avaliação isVisible={isModalVisible} onClose={closeModal} />
               )}
-              {/* <Avaliação isVisible={isModalVisible} onClose={closeModal}/>   */}
-              
-                       
+                                   
             </div> 
 
             <div className="justify-center">

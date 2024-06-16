@@ -41,15 +41,20 @@ const Comment: React.FC = () => {
                 <div className="flex items-center">
                     <button onClick={openModalComent}>
                         <img src="comente 1.png" alt="comentario icon"/>
-                    </button>                    
-                    <Comentario isVisible={isModalComentVisible} onClose={closeModalComent}/>
+                    </button>     
+                    {isModalComentVisible&& ( 
+                        <Comentario isVisible={isModalComentVisible} onClose={closeModalComent}/>
+                    )}              
+                   
                     <h1 className="text-[#222E50] text-sm font-medium">2 comentarios</h1>
                 </div>
                 <div className="flex items-center mr-8">
                     <button onClick={openModalEdit}>
                         <img src="editIcon.png" alt="Edit icon"/>
                     </button>                    
-                    <Editar isVisible={isModalEditVisible} onClose={closeModalEdit}/>
+                    {isModalEditVisible && (
+                        <Editar isVisible={isModalEditVisible} onClose={closeModalEdit}/>
+                    )}                    
                     <img className="ml-4"src="lixeira 1.png" alt="Delete icon" />
                 </div>
             </div>
