@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import CardProfessor from "../components/cardProfessor";
 import BotaoOpcoes from "../components/botaoOpcoes";
 import Avaliação from "../modal/Avaliação";
-import {Formik, Form, Field} from "formik";
 import axios from "axios";
 import * as Yup from "yup";
 import {useRouter} from "next/navigation";
@@ -63,15 +62,18 @@ const Feed: React.FC = () => {
           department: department
         }
 
-        axios.get("http://localhost:2000/professors")
+        axios.patch("http://localhost:2000/professors", professorData)
           .then((data) => {
             console.log(data);
             return(              
-            <CardProfessor
-                nome = {professorData.name}
-                curso = {professorData.department}
-                imgScr = "/user.png"
-           />)
+              <div className="flex flex-wrap mt-10 ml-32">
+                <CardProfessor
+                    nome = {professorData.name}
+                    curso = {professorData.department}
+                    imgScr = "/user.png"
+              />
+                </div>
+            )   
           })
           .catch((err) => {
             console.log(err)
@@ -141,9 +143,10 @@ const Feed: React.FC = () => {
               <button onClick={openModal} className="w-40 h-14 rounded-16px border-2 border-white mr-14 bg-[#00ABED] shadow-custom duration-500 hover:duration-500 hover:bg-[#0077B5] mt-8 ml-32"> 
               <h1 className="font-normal text-l font-questrial text-white text-center">Nova Avaliação</h1>
               </button>
-              {/* <Avaliação isVisible={isModalVisible} onClose={closeModal}/>   */}
-
-                       
+              {isModalVisible && (
+              <Avaliação isVisible={isModalVisible} onClose={closeModal} />
+              )}
+                                   
             </div> 
 
             <div className="justify-center">
@@ -191,9 +194,11 @@ const Feed: React.FC = () => {
           imgScr = "/user.png"
           />
       </div>
+
+      {/* {isModalVisible && (
+        <Avaliação isVisible={isModalVisible} onClose={closeModal} />
+      )} */}
       </>
-
-
     );
   };
 
