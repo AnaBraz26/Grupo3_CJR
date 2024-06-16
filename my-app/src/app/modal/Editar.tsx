@@ -42,6 +42,7 @@ const handleSubmit = async (e: any) => {
     
 };
 
+
     return(
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div className="flex flex-col m-10 items-center bg-green-300 w-1/2 h-3/4 p-5 rounded-xl">
@@ -74,5 +75,6 @@ const handleSubmit = async (e: any) => {
         </div>
     );
 };
+}
 
 export default Modal_editar;
