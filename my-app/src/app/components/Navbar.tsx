@@ -20,7 +20,7 @@ export default function NavBar() {
             {token ?
                 <div className="flex items-center justify-round pr-9">
                     <img className="cursor-pointer w-45px h-45px mr-74px" src="notification.png" alt="Icone para olhar notificação" />
-                    <a href="http://localhost:3000/profile">
+                    <a href={`http://localhost:3000/profile`}>
                         <img className="cursor-pointer rounded-100px mr-19px w-64px" src="morty.jpg" alt="Foto de pergil" />
                     </a>
                     <img onClick={() => deslogar()} className="cursor-pointer" src="exit.svg" alt="Icone de saída" />
